@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub enum PitchDice{
     S,
     SM,
@@ -38,17 +39,22 @@ pub fn get_pitch_dice(key : &str) -> Option<PitchDice>{
         _ => None,
     }
 }
-enum GSub{
+#[derive(Debug)]
+pub enum GSub{
     GF,
     G3,
     GA,
 }
-enum FSub{
+
+#[derive(Debug)]
+pub enum FSub{
     FO,
     F2,
     F3,
     FA,
 }
+
+#[derive(Debug)]
 pub enum CDice{
     G(GSub),
     PO,
@@ -119,10 +125,13 @@ pub fn get_c_dice(key : &str) -> Option<CDice>{
     }
 }
 
-enum HitSub{
+#[derive(Debug)]
+pub enum HitSub{
     AD1,
     AD2,
 }
+
+#[derive(Debug)]
 pub enum HTDice{
     Hit(HitSub),
     D2,
@@ -170,4 +179,10 @@ pub fn get_ht_dice(key : &str) -> Option<HTDice>{
         "t3" => Some(HTDice::T3),        
         _ => None,
     }
+}
+#[derive(Debug)]
+pub enum Dice{
+    PitchDice,
+    CDice,    
+    HitDice,
 }
